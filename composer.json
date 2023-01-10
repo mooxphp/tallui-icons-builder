@@ -1,12 +1,12 @@
 {
-    "name": "blade-organization/blade-heroicons",
-    "description": "Description",
+    "name": "tallui-organization/blade-heroicons",
+    "description": "tallui-description",
     "keywords": ["Blade", "Heroicons", "Laravel"],
-    "homepage": "https://github.com/blade-organization/blade-heroicons",
+    "homepage": "https://github.com/tallui-organization/tallui-heroicons",
     "license": "MIT",
     "authors": [
         {
-            "name": "Blade Developer"
+            "name": "TallUI Developer"
         }
     ],
     "require": {
