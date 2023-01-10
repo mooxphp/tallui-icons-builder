@@ -152,13 +152,13 @@ function determineSeparator(string $path): string
 /** @return array<mixed> */
 function replaceForWindows(): array
 {
-    return (array) preg_split('/\\r\\n|\\r|\\n/', run((string) 'dir /S /B * | findstr /v /i .git\ | findstr /v /i vendor | findstr /v /i ' . basename((string) __FILE__) . ' | findstr /r /i /M /F:/ "Blade blade Heroicons heroicons tallui-heroicons"'));
+    return (array) preg_split('/\\r\\n|\\r|\\n/', run((string) 'dir /S /B * | findstr /v /i .git\ | findstr /v /i vendor | findstr /v /i ' . basename((string) __FILE__) . ' | findstr /r /i /M /F:/ "tallui heroicon Heroicons tallui-heroicons"'));
 }
 
 /** @return array<string> */
 function replaceForAllOtherOSes(): array
 {
-    return explode(PHP_EOL, run('grep -E -r -l -i "Blade|blade|Heroicons|heroicons|tallui-heroicons" --exclude-dir=vendor ./* ./.github/* | grep -v ' . basename(__FILE__)));
+    return explode(PHP_EOL, run('grep -E -r -l -i "Blade|blade|Heroicons|heroicon|tallui-heroicons" --exclude-dir=vendor ./* ./.github/* | grep -v ' . basename(__FILE__)));
 }
 
 $orgaizationName = ask('Organosation Name', 'tallui');
@@ -196,7 +196,7 @@ foreach ($files as $file) {
     writeln('__' . $file . '__');
 
     // replace_in_file($file, [
-    //     'tallui-organisation' => $orgaizationName,
+    //     'tallui-organization' => $orgaizationName,
     //     'tallui-heroicons' => $repositoryName,
     //     'tallui-description' => $description,
     //     'TallUI Developer' => $authorName,
