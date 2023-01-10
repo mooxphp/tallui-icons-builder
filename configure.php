@@ -195,21 +195,21 @@ writeln('__' . count($files) . '__');
 foreach ($files as $file) {
     writeln('__' . $file . '__');
 
-    // replace_in_file($file, [
-    //     'tallui-organization' => $orgaizationName,
-    //     'tallui-heroicons' => $repositoryName,
-    //     'tallui-description' => $description,
-    //     'TallUI Developer' => $authorName,
-    //     'Heroicons' => $iconSetName,
+    replace_in_file($file, [
+        'tallui-organization' => $orgaizationName,
+        'tallui-heroicons' => $repositoryName,
+        'tallui-description' => $description,
+        'TallUI Developer' => $authorName,
+        'Heroicons' => $iconSetName,
 
-    // ]);
+    ]);
 
-    // match (true) {
-    //     str_contains($file, determineSeparator('config/tallui-heroicons.php')) => rename($file, determineSeparator('./config/' . $icons . '.php')),
-    //     str_contains($file, determineSeparator('src/BladeHeroiconsServiceProvider.php')) => rename($file, determineSeparator('./src/' . $iconSetName . 'ServiceProvider.php')),
-    //     str_contains($file, 'README.md') => remove_readme_paragraphs($file),
-    //     default => [],
-    // };
+    match (true) {
+        str_contains($file, determineSeparator('config/tallui-heroicons.php')) => rename($file, determineSeparator('./config/' . $icons . '.php')),
+        str_contains($file, determineSeparator('src/BladeHeroiconsServiceProvider.php')) => rename($file, determineSeparator('./src/' . $iconSetName . 'ServiceProvider.php')),
+        str_contains($file, 'README.md') => remove_readme_paragraphs($file),
+        default => [],
+    };
 }
 
 confirm('Let this script delete itself?', false) && unlink(__FILE__);
