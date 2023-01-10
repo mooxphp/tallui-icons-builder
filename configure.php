@@ -158,19 +158,19 @@ function replaceForWindows(): array
 /** @return array<string> */
 function replaceForAllOtherOSes(): array
 {
-    return explode(PHP_EOL, run('grep -E -r -l -i "Blade|blade|Heroicons|heroicon|tallui-heroicons" --exclude-dir=vendor ./* ./.github/* | grep -v ' . basename(__FILE__)));
+    return explode(PHP_EOL, run('grep -E -r -l -i "tallui|heroicon|Heroicons|tallui-heroicons" --exclude-dir=vendor ./* ./.github/* | grep -v ' . basename(__FILE__)));
 }
 
 $orgaizationName = ask('Organosation Name', 'tallui');
 $gitName = run('git config user.name');
 $authorName = ask('Author name', $gitName);
 
-$repositoryName = ask('Repository name', 'Icons');
+$repositoryName = ask('Repository name', '');
 
 $currentDirectory = getcwd();
 $folderName = basename((string) $currentDirectory);
 
-$iconSetName = ask('Icon set name', 'Flags');
+$iconSetName = ask('Icon set name', '');
 $icons = lcfirst($iconSetName);
 
 $description = ask('Package description', "This is my iconset {$iconSetName}");
@@ -191,10 +191,7 @@ if (!confirm('Modify files?', true)) {
 }
 
 $files = (str_starts_with(strtoupper(PHP_OS), 'WIN') ? replaceForWindows() : replaceForAllOtherOSes());
-writeln('__' . count($files) . '__');
 foreach ($files as $file) {
-    writeln('__' . $file . '__');
-
     replace_in_file($file, [
         'tallui-organization' => $orgaizationName,
         'tallui-heroicons' => $repositoryName,
