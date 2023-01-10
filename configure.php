@@ -206,7 +206,7 @@ foreach ($files as $file) {
 
     match (true) {
         str_contains($file, determineSeparator('config/tallui-heroicons.php')) => rename($file, determineSeparator('./config/' . $icons . '.php')),
-        str_contains($file, determineSeparator('src/BladeHeroiconsServiceProvider.php')) => rename($file, determineSeparator('./src/' . $iconSetName . 'ServiceProvider.php')),
+        str_contains($file, determineSeparator('src/TallUIHeroiconsServiceProvider.php')) => rename($file, determineSeparator('./src/' . $iconSetName . 'ServiceProvider.php')),
         str_contains($file, 'README.md') => remove_readme_paragraphs($file),
         default => [],
     };
