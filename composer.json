@@ -1,12 +1,12 @@
 {
-    "name": "tallui-organization/tallui-heroicons",
-    "description": "tallui-description",
-    "keywords": ["Blade", "Heroicons", "Laravel"],
-    "homepage": "https://github.com/tallui-organization/tallui-heroicons",
+    "name": "usetall/tallui-icons-builder",
+    "description": "A package to easily make use of TallUIIconsBuilder in your Laravel Blade views.",
+    "keywords": ["TallUI", "Blade", "Icons", "Laravel", "Package"],
+    "homepage": "https://github.com/usetall/tallui-icons-builder",
     "license": "MIT",
     "authors": [
         {
-            "name": "TallUI Developer"
+            "name": "TallUI Devs"
         }
     ],
     "require": {
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BladeUI\\Heroicons\\": "src"
+            "Usetall\\TalluiIconsBuilder\\": "src"
         }
     },
     "autoload-dev": {
@@ -31,7 +31,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BladeUI\\Heroicons\\BladeHeroiconsServiceProvider"
+                "Usetall\\TalluiIconsBuilder\\TalluiIconsBuilderServiceProvider"
             ]
         }
     },
